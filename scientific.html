@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Scientific Calculator</title>
+    <style>
+        body {
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+        }
+    
+        .calculator {
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            width: 300px;
+            margin: 0 auto;
+            padding: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+    
+        h1 {
+            text-align: center;
+        }
+    
+        #input {
+            width: 100%;
+            font-size: 20px;
+            padding: 5px;
+            margin-bottom: 10px;
+            border: none;
+            border-bottom: 2px solid #ccc;
+        }
+    
+        .btn {
+            width: 45%;
+            height: 40px;
+            font-size: 18px;
+            margin: 5px;
+            border: none;
+            border-radius: 4px;
+            background-color: #4CAF50;
+            color: #fff;
+            cursor: pointer;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+    
+        .btn:hover {
+            background-color: #3e8e41;
+        }
+    
+        #equal {
+            background-color: #2196F3;
+            width: 90%;
+            margin-top: 10px;
+        }
+    
+        #equal:hover {
+            background-color: #0d8ddb;
+        }
+    
+        #clear {
+            background-color: #f44336;
+        }
+    
+        #clear:hover {
+            background-color: #d1210c;
+        }
+    </style>
+    
+    <div class="calculator">
+        <h1>Scientific Calculator</h1>
+        <input type="text" id="input" placeholder="Enter your expression">
+        <div>
+            <button class="btn" onclick="add()">+</button>
+            <button class="btn" onclick="subtract()">-</button>
+            <button class="btn" onclick="multiply()">*</button>
+            <button class="btn" onclick="divide()">/</button>
+            <button class="btn" onclick="power()">^</button>
+        </div>
+        <div>
+            <button class="btn" onclick="sine()">sin</button>
+            <button class="btn" onclick="cosine()">cos</button>
+            <button class="btn" onclick="tangent()">tan</button>
+            <button class="btn" onclick="logarithm()">log</button>
+            <button class="btn" onclick="squareRoot()">√</button>
+        </div>
+        <div>
+            <button class="btn" onclick="square()">x²</button>
+            <button class="btn" onclick="clearInput()" id="clear">C</button>
+            <button class="btn" onclick="calculate()" id="equal">=</button>
+        </div>
+    </div>
+    
+    <script>
+        
+        function add() {
+            document.getElementById("input").value += "+";
+        }
+    
+        function subtract() {
+            document.getElementById("input").value += "-";
+        }
+    
+        function multiply() {
+            document.getElementById("input").value += "*";
+        }
+    
+        function divide() {
+            document.getElementById("input").value += "/";
+        }
+    
+        function power() {
+            document.getElementById("input").value += "^";
+        }
+    
+        function sine() {
+            document.getElementById("input").value = Math.sin(document.getElementById("input").value);
+        }
+    
+        function cosine() {
+            document.getElementById("input").value = Math.cos(document.getElementById("input").value);
+        }
+    
+        function tangent() {
+            document.getElementById("input").value = Math.tan(document.getElementById("input").value);
+        }
+    
+        function logarithm() {
+            document.getElementById("input").value = Math.log(document.getElementById("input").value);
+        }
+    
+        function squareRoot() {
+            document.getElementById("input").value = Math.sqrt(document.getElementById("input").value);
+        }
+    
+        function square() {
+            var x = document.getElementById("input").value;
+            document.getElementById("input").value = x * x;
+        }
+    
+        function clearInput() {
+            document.getElementById("input").value = "";
+        }
+    
+        function calculate() {
+            var expression = document.getElementById("input").value;
+            var result = eval(expression);
+            document.getElementById("input").value = result;
+        }
+    </script>
+    
+    
+</head>
+<body>
+	<h1>Scientific Calculator</h1>
+	<div id="calculator">
+		<input type="text" id="input">
+
+		<input type="button" value="+" onclick="add()">
+		<input type="button" value="-" onclick="subtract()">
+		<input type="button" value="*" onclick="multiply()">
+		<input type="button" value="/" onclick="divide()">
+		<input type="button" value="^" onclick="power()">
+		<input type="button" value="sin" onclick="sine()">
+		<input type="button" value="cos" onclick="cosine()">
+		<input type="button" value="tan" onclick="tangent()">
+		<input type="button" value="log" onclick="logarithm()">
+		<input type="button" value="sqrt" onclick="squareRoot()">
+		<input type="button" value="x^2" onclick="square()">
+
+		<input type="button" value="Clear" onclick="clearInput()" class="wide">
+		<input type="button" value="=" onclick="calculate()" class="wide">
+	</div>
+
+	
+</body>
+</html>    
