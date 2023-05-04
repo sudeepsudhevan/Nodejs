@@ -5,8 +5,9 @@ var fs=require('fs');   //fs is a module which is used to read and write files
 var url=require('url'); //url is a module which is used to parse the url
 
 http.createServer(function(req,res){//callback function,here req and res are parameters
-
-    var q=url.parse(req.url);//parse is used to parse the url
+//req is a request from the client and res is a response from the server
+//function(req,res) is a callback function to create a server
+    var q=url.parse(req.url,true);//parse is used to parse the url
     //console.log(q.pathname);
 
     if(q.pathname=="/"){//pathname is used to get the path of the url
@@ -25,8 +26,10 @@ http.createServer(function(req,res){//callback function,here req and res are par
         res.end();
     });    
     }else if(q.pathname==="/signupaction"){
-
-    res.write('action')
+     
+    console.log(q.query);//query is used to get the query string
+    console.log(q.query.email);    
+    res.write("<h1>"+q.query.fname+"</h1>")
     res.end()
 
 
