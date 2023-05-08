@@ -18,7 +18,14 @@ function getMobile(){
     })
 }
 
-Promise.all([getName(),getMobile()]).then((result)=>{
-    console.log(result);
-})
+ //   Promise.all([getName(),getMobile()]).then((result)=>{
+ //       console.log(result);
+ //   })
 
+async function getUser(){ //async is used to make a function asynchronous
+    let name=await getName(); //await is used to wait for the promise to resolve
+    console.log(name);
+    let mobile=await getMobile();
+    console.log(mobile);
+}
+getUser();
