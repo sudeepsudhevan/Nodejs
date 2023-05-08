@@ -24,7 +24,10 @@ app.get('/signup', function (req, res,next) {
 app.use(function(req,res){
     console.log("end");
     
+    
 })
+//send a response to the client
+
 
 app.post('/signup', function (req, res) {
     // console.log("signup action");
